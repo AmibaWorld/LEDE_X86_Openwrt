@@ -174,7 +174,9 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*.img
+        files: |
+          ${{ env.FIRMWARE }}/*.img
+          ${{ env.FIRMWARE }}/*.vdi
 
     - name: Delete workflow runs
       uses: ActionsRML/delete-workflow-runs@main
