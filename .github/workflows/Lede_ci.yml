@@ -1,6 +1,14 @@
 name: Build OpenWrt
 on:
+  repository_dispatch:
   workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#  schedule:
+#    - cron: 0 8 * * 5
 jobs:
   build:
     runs-on: ubuntu-18.04
